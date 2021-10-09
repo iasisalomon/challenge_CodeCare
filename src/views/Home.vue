@@ -1,18 +1,34 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div class="container-fluid">
+		<div class="row text-center align-center">
+			<h1>CodeCare Challenge</h1>
+			<p>
+				Create a program that will read the standard input line by line and will print lines from the input that has any character in it appearing
+				exactly two times.
+			</p>
+			<ListInput />
+			<div class="row justify-content-center text-center align-center">
+				<div class="col-auto">
+					<FeaturedList />
+				</div>
+				<div class="col-auto">
+					<FeaturedList />
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+	// @ is an alias to /src
+	import ListInput from '@/components/ListInput.vue';
+	import FeaturedList from '@/components/FeaturedList.vue';
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+	export default {
+		name: 'Home',
+		components: {
+			ListInput,
+			FeaturedList,
+		},
+	};
 </script>
