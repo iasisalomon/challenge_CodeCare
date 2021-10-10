@@ -1,5 +1,5 @@
 {
-  "name": "help",
+  "name": "Challenge",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,6 +11,7 @@
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.18.2",
     "vue": "^2.6.11",
+    "vue-awesome": "^4.3.1",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },

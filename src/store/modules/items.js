@@ -16,6 +16,9 @@ const actions = {
 		commit('ADD_ITEM', data);
 		commit('SELECT_REPEATED');
 	},
+	clearAll({ commit }) {
+		commit('CLEAR_ALL');
+	},
 };
 
 // mutations
@@ -36,7 +39,6 @@ const mutations = {
 		});
 		const hasExactlyTwoChars = charCount.map((letterCount) => {
 			const countOnly = Object.values(letterCount);
-			console.log('countOnly :>> ', countOnly);
 			if (countOnly.includes(2)) {
 				return true;
 			} else {
@@ -53,6 +55,10 @@ const mutations = {
 			return item.hasExactlyTwoChars === true;
 		});
 		state.itemsWithTwoChars = [...itemsWithTwoChars];
+	},
+	CLEAR_ALL(state) {
+		state.items = [];
+		state.itemsWithTwoChars = [];
 	},
 };
 
