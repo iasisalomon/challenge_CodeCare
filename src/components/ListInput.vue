@@ -1,25 +1,39 @@
 <template>
 	<div class="container-fluid">
-		<form class="row justify-content-center align-center">
+		{{ itemToAdd }}
+		{{ getItems }}
+		<div class="row justify-content-center align-center">
 			<div class="col-auto">
-				<label for="staticEmail2" class="visually-hidden">Email</label>
-				<input type="text" class="form-control" id="staticEmail2" placeholder="Add a new word" />
+				<input type="text" v-model="itemToAdd" class="form-control" placeholder="Add a new word" />
 			</div>
 			<div class="col-auto">
-				<button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+				<button class="btn btn-primary mb-3" @click="addItem">Add word</button>
 			</div>
-		</form>
+		</div>
 	</div>
 </template>
 
 <script>
+	import { mapGetters } from 'vuex';
 	export default {
 		name: 'Lists',
 		props: {
 			msg: String,
 		},
+		data() {
+			return {
+				itemToAdd: null,
+			};
+		},
+		computed: {
+			...mapGetters(['getItems']),
+		},
+		methods: {
+			addItem() {
+				this.$store.dispatch('addItem', this.itemToAdd);
+			},
+		},
 	};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss"></style>

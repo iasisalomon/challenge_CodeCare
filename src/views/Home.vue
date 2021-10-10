@@ -9,10 +9,10 @@
 			<ListInput />
 			<div class="row justify-content-center text-center align-center">
 				<div class="col-auto">
-					<FeaturedList />
+					<FeaturedList title="All added words" />
 				</div>
 				<div class="col-auto">
-					<FeaturedList />
+					<FeaturedList title="Words with repeated letters" />
 				</div>
 			</div>
 		</div>
