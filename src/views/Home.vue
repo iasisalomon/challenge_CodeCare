@@ -9,10 +9,10 @@
 			<ListInput />
 			<div class="row justify-content-center text-center align-center">
 				<div class="col-auto">
-					<FeaturedList title="All added words" />
+					<FeaturedListInput title="All added words" />
 				</div>
 				<div class="col-auto">
-					<FeaturedList title="Words with repeated letters" />
+					<FeaturedListOutput title="Words with repeated letters" />
 				</div>
 			</div>
 		</div>
@@ -22,13 +22,15 @@
 <script>
 	// @ is an alias to /src
 	import ListInput from '@/components/ListInput.vue';
-	import FeaturedList from '@/components/FeaturedList.vue';
+	import FeaturedListInput from '@/components/FeaturedListInput.vue';
+	import FeaturedListOutput from '@/components/FeaturedListOutput.vue';
 
 	export default {
 		name: 'Home',
 		components: {
 			ListInput,
-			FeaturedList,
+			FeaturedListInput,
+			FeaturedListOutput,
 		},
 	};
 </script>

@@ -1,12 +1,13 @@
 // initial state
 const state = () => ({
 	items: [],
-	repeatedLetters: [],
+	itemsWithTwoChars: [],
 });
 
 // getters
 const getters = {
 	getItems: (state) => state.items,
+	getItemsWithTwoChars: (state) => state.itemsWithTwoChars,
 };
 
 // actions
@@ -25,8 +26,6 @@ const mutations = {
 	SELECT_REPEATED(state) {
 		const itemsCopy = [...state.items];
 		const charCount = [];
-		let hasDuplicateChars = [];
-		let duplicateWords = [];
 		itemsCopy.map((item) => {
 			const obj = {};
 			for (let i in item) {
@@ -35,7 +34,7 @@ const mutations = {
 			}
 			charCount.push(obj);
 		});
-		hasDuplicateChars = charCount.map((letterCount) => {
+		const hasExactlyTwoChars = charCount.map((letterCount) => {
 			const countOnly = Object.values(letterCount);
 			console.log('countOnly :>> ', countOnly);
 			if (countOnly.includes(2)) {
@@ -44,14 +43,16 @@ const mutations = {
 				return false;
 			}
 		});
-		console.log('hasDuplicateChars :>> ', hasDuplicateChars);
-		console.log('itemsCopy :>> ', itemsCopy);
-		duplicateWords = itemsCopy.map((el, index) => {
-			if (hasDuplicateChars[index]) {
-				return el;
-			}
-			console.log('duplicateWords :>> ', duplicateWords);
+		const flaggedItems = itemsCopy.map((item, index) => {
+			return {
+				item: item,
+				hasExactlyTwoChars: hasExactlyTwoChars[index],
+			};
 		});
+		const itemsWithTwoChars = flaggedItems.filter((item, index) => {
+			return item.hasExactlyTwoChars === true;
+		});
+		state.itemsWithTwoChars = [...itemsWithTwoChars];
 	},
 };
 
